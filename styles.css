@@ -1,0 +1,495 @@
+:root {
+  --bg: #f4efe7;
+  --surface: rgba(255, 250, 244, 0.72);
+  --surface-strong: #f9f4ed;
+  --text: #211d1a;
+  --muted: #665d56;
+  --line: rgba(33, 29, 26, 0.12);
+  --accent: #a36f3d;
+  --accent-deep: #704826;
+  --shadow: 0 24px 60px rgba(67, 49, 31, 0.14);
+  --radius: 8px;
+  --max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(180, 143, 104, 0.18), transparent 24%),
+    linear-gradient(180deg, #f7f2eb 0%, #f0e7dc 100%);
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.site-header,
+.hero,
+.section,
+.site-footer {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: 0 auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 0 0;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.brand-name,
+.brand-subtitle {
+  margin: 0;
+}
+
+.brand-name {
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.brand-subtitle,
+.hero-text,
+.intro-text p,
+.service-card p,
+.process-grid p,
+.project-description,
+.contact-copy p,
+.site-footer,
+.project-location {
+  color: var(--muted);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.site-nav a {
+  position: relative;
+  padding-bottom: 0.2rem;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--text);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2rem;
+  align-items: end;
+  padding: 4.25rem 0 3rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-deep);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  line-height: 0.98;
+}
+
+h1 {
+  max-width: 10ch;
+  font-size: clamp(3.8rem, 5vw, 6.2rem);
+}
+
+h2 {
+  max-width: 15ch;
+  font-size: clamp(2.3rem, 3.6vw, 3.8rem);
+}
+
+h3 {
+  font-size: 1.9rem;
+}
+
+.hero-text {
+  max-width: 58ch;
+  margin: 1.5rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: var(--text);
+  color: #fff9f2;
+  border-color: var(--text);
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.hero-panel {
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hero-panel-image img {
+  aspect-ratio: 4 / 4.4;
+  object-fit: cover;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+
+.hero-stats div {
+  padding: 1rem;
+}
+
+.hero-stats div + div {
+  border-left: 1px solid var(--line);
+}
+
+.hero-stats strong {
+  display: block;
+  font-size: 1.7rem;
+  margin-bottom: 0.35rem;
+}
+
+.hero-stats span,
+.project-meta,
+.filter-button {
+  font-size: 0.9rem;
+}
+
+.section {
+  padding: 2.25rem 0 4.5rem;
+}
+
+.intro-grid,
+.contact-section {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.quote-card,
+.contact-card {
+  padding: 2rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 252, 246, 0.68);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.quote-card p {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.08;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.services-grid,
+.process-grid,
+.projects-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.services-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.service-card,
+.process-grid article,
+.project-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 251, 246, 0.72);
+}
+
+.service-card {
+  padding: 1.6rem;
+}
+
+.service-card span {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--accent-deep);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.service-card p,
+.process-grid p,
+.project-description,
+.contact-card p {
+  line-height: 1.75;
+}
+
+.process-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.process-grid article {
+  padding: 1.8rem;
+}
+
+.projects-heading {
+  align-items: center;
+}
+
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.filter-button {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.42);
+  color: var(--text);
+  min-height: 2.8rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.filter-button.is-active {
+  background: var(--text);
+  color: #fff8f1;
+}
+
+.projects-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-card {
+  overflow: hidden;
+}
+
+.project-image-wrap {
+  overflow: hidden;
+}
+
+.project-image {
+  aspect-ratio: 4 / 3.3;
+  object-fit: cover;
+  transition: transform 320ms ease;
+}
+
+.project-card:hover .project-image,
+.project-card:focus-within .project-image {
+  transform: scale(1.04);
+}
+
+.project-content {
+  padding: 1.2rem;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+  color: var(--accent-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.project-title {
+  margin-bottom: 0.55rem;
+}
+
+.project-location {
+  margin: 0 0 0.7rem;
+}
+
+.project-description {
+  margin: 0;
+}
+
+.contact-card .button {
+  margin-top: 0.8rem;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 0 2rem;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 980px) {
+  .site-header,
+  .hero,
+  .intro-grid,
+  .contact-section,
+  .services-grid,
+  .process-grid,
+  .projects-grid,
+  .site-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header,
+  .section-heading,
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .hero-panel {
+    max-width: 42rem;
+  }
+
+  .projects-grid,
+  .services-grid,
+  .process-grid {
+    display: grid;
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    background:
+      radial-gradient(circle at top left, rgba(180, 143, 104, 0.18), transparent 32%),
+      linear-gradient(180deg, #f7f2eb 0%, #f0e7dc 100%);
+  }
+
+  .site-header,
+  .hero,
+  .section,
+  .site-footer {
+    width: min(calc(100% - 1.25rem), var(--max-width));
+  }
+
+  h1 {
+    max-width: 12ch;
+    font-size: 3.15rem;
+  }
+
+  h2 {
+    max-width: none;
+    font-size: 2.5rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats div + div {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .quote-card,
+  .contact-card,
+  .service-card,
+  .process-grid article,
+  .project-content {
+    padding-inline: 1.1rem;
+  }
+}
